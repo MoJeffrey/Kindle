@@ -1,0 +1,17 @@
+<?xml version="1.0"  encoding="UTF-8"?>
+<metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf" xmlns:Txt2ePub="http://no722.cocolog-nifty.com/blog/metadata">
+<dc:title></dc:title>
+<dc:creator opf:role="aut" opf:file-as=""></dc:creator>
+<dc:date></dc:date>
+<dc:language>en</dc:language>
+<meta content="true" name="fixed-layout" />
+<meta content="comic" name="book-type" />
+<meta name="Txt2ePub:series_index" content="1"/>
+<dc:identifier opf:scheme="ISBN"></dc:identifier>
+</metadata>
+<manifest>
+</manifest>
+<spine>
+
+</spine>
+</package>
