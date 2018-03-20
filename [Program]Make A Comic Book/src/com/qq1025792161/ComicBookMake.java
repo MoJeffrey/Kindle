@@ -6,7 +6,7 @@ public class ComicBookMake {
 		long startTime=System.currentTimeMillis();   //获取开始时间  
 		new ComicBook(args[0]);
 		long endTime=System.currentTimeMillis(); //获取结束时间  
-		System.out.println("程序运行时间： "+(endTime-startTime)+"ms");   
+		System.out.println("程序运行时间： "+(endTime-startTime)/60000+"min");   
 		
 		
 	}

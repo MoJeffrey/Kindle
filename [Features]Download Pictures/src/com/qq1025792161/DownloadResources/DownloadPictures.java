@@ -1,14 +1,12 @@
-package com.qq1025792161.DownloadPitures;
+package com.qq1025792161.DownloadResources;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.text.DecimalFormat;
@@ -20,12 +18,13 @@ public class DownloadPictures {
 	 String URLString;
 	 
 	 File ComicsFile;
-	
-	 URLConnection ComicsURLConnection;
+		 
+	 BufferedReader WebBufferedReader;
 	public DownloadPictures(String URLString){
 		this.URLString=URLString;
 		
-		ObtainURLConnection();
+		WebBufferedReader=new WebsiteHTML(URLString).ObtainWebsiteHTMLString();
+		
 		try {
 			String[] PictureURLs=ObtainStringBuilderForPictureURLs().toString().split("\n");
 			int PictureURLsIndex=PictureURLs.length;
@@ -52,23 +51,9 @@ public class DownloadPictures {
 		   return ProgressIndex;
 	}
 	
-	private void ObtainURLConnection(){
-		try {
-			ComicsURLConnection =new URL(URLString).openConnection();
-			ComicsURLConnection.addRequestProperty("User-Agent",
-			"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)");
-			ComicsURLConnection.setDoInput(true);
-			ComicsURLConnection.connect();
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return;
-	}
+	
 	
 	private StringBuilder ObtainStringBuilderForPictureURLs() throws UnsupportedEncodingException, IOException {
-		BufferedReader WebBufferedReader= new BufferedReader(new InputStreamReader(ComicsURLConnection.getInputStream(),"utf-8"));
 		StringBuilder StringBuilderForPictureURLs= new StringBuilder();
 		String WebLineString= null;
 		ObtainPictureURL(WebBufferedReader,StringBuilderForPictureURLs,WebLineString);

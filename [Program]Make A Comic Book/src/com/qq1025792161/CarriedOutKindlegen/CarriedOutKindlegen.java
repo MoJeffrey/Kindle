@@ -28,7 +28,7 @@ public class CarriedOutKindlegen {
 	    try {
 	    	String Com="cmd.exe /c " + KindlegenCommand+"\t"+ConversionFile+"\t-c2\t-o\t"+ComicsFileName.replaceAll(" ","");
 	        Process process = run.exec(Com);  
-	        System.out.println(Com);
+	   
 	        InputStream input = process.getInputStream();   
 	        BufferedReader reader = new BufferedReader(new InputStreamReader(input,"utf8"));  
 	        String szline;  

@@ -14,6 +14,7 @@ import com.qq1025792161.KindleGenOPF.KindleGenOPF;
 public class PicturesAndProfiles {
 	File Position;
 	File ProfilesForOPFFile;
+	
 	File ProfilesForCssFile=new File("index_0.css");
 	File ProfilesForTocFile=new File("toc.ncx");
 	
@@ -45,6 +46,21 @@ public class PicturesAndProfiles {
 		
 	
 	}
+	public void FindMobiFileAndCopy(File Position) {
+		File[] FileName=Position.listFiles();
+		for(File File:FileName) {
+			if(File.toString().indexOf("mobi")!=-1) {
+				try {
+					Files.copy(File.toPath(),new File(File.getName()).toPath());
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				return;
+			}
+		}
+	}
+	
 	public File GetProfilesForOPFFile() {
 		return ProfilesForOPFFile;
 	}
@@ -94,9 +110,9 @@ public class PicturesAndProfiles {
 		ArrayList<File> ProfilesForXHTMLFileList=new ArrayList<File>();
 		
 		for(File ComicPictureFile:ComicPictureFileList) {
-			File ProfilesForXHTMLFile=new File(Position.getPath()+"/index_"+NumberOfDocuments+".xhtml");
+			File ProfilesForXHTMLFile=new File(Position.getPath()+"/index_"+SortNaming(NumberOfDocuments)+".xhtml");
 			
-			new KindleGenXHTML(ProfilesForXHTMLFile,Title,ComicPictureFile.getPath());
+			new KindleGenXHTML(ProfilesForXHTMLFile,Title,"Resources/"+ComicPictureFile.getName());
 			
 			ProfilesForXHTMLFileList.add(ProfilesForXHTMLFile);
 			
@@ -123,6 +139,16 @@ public class PicturesAndProfiles {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+	}
+	
+	private String SortNaming(int Number) {
+		if(Number<10) {
+			return "00"+Number;
+		}else if(Number<100&&Number>9) {
+			return "0"+Number;
+		}else {
+			return Number+"";
 		}
 	}
 }

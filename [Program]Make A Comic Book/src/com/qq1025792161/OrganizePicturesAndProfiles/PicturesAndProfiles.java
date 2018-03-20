@@ -15,8 +15,8 @@ public class PicturesAndProfiles {
 	File Position;
 	File ProfilesForOPFFile;
 	
-	String ProfilesForCssFileURL="/index_0.css";
-	String ProfilesForTocFileURL="/toc.ncx";
+	File ProfilesForCssFile=new File("index_0.css");
+	File ProfilesForTocFile=new File("toc.ncx");
 	
 	File[] ComicPictureFileList;
 	ArrayList<File> ProfilesForXHTMLFileList;
@@ -124,9 +124,9 @@ public class PicturesAndProfiles {
 	
 	private void CopyCssProfiles() {
 		try {
-			Files.copy(new File(Thread.currentThread().getContextClassLoader().getResource("").toURI()+ProfilesForCssFileURL).toPath(),
-					new File(Position.getPath()+"/Resources"+ProfilesForCssFileURL).toPath());
-		} catch (Exception e) {
+			Files.copy(ProfilesForCssFile.toPath(),
+					new File(Position.getPath()+"/Resources/"+ProfilesForCssFile).toPath());
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -134,9 +134,9 @@ public class PicturesAndProfiles {
 	
 	private void CopyTocProfiles() {
 		try {
-			Files.copy(new File(Thread.currentThread().getContextClassLoader().getResource("").toURI()+ProfilesForTocFileURL).toPath(),
-					new File(Position.getPath()+ProfilesForTocFileURL).toPath());
-		} catch (Exception e) {
+			Files.copy(ProfilesForCssFile.toPath(),
+					new File(Position.getPath()+"/"+ProfilesForTocFile).toPath());
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
