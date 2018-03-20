@@ -1,6 +1,5 @@
 package com.qq1025792161.KindleGenHTML;
 
-import java.awt.List;
 import java.io.File;
 import java.util.Arrays;
 import java.util.Collections;
