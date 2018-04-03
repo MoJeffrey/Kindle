@@ -2,7 +2,7 @@ package com.qq1025792161;
 
 import java.io.File;
 
-import com.qq1025792161.DownloadPitures.DownloadPictures;
+import com.qq1025792161.DownloadResources.*;
 import com.qq1025792161.OrganizePicturesAndProfiles.*;
 import com.qq1025792161.CarriedOutKindlegen.*;;
 
@@ -31,7 +31,7 @@ public class ComicBook {
 		CarriedOutKindlegen();
 		
 		PicturesAndProfiles.FindMobiFileAndCopy(ComicsFile);
-//		PicturesAndProfiles.deletePosition(ComicsFile);
+		PicturesAndProfiles.deletePosition(ComicsFile);
 	}
 	
 	private DownloadPictures DownloadPictures() {

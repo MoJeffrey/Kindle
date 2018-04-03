@@ -23,7 +23,7 @@ public class DownloadPictures {
 	public DownloadPictures(String URLString){
 		this.URLString=URLString;
 		
-		WebBufferedReader=new WebsiteHTML(URLString).ObtainWebsiteHTMLString();
+		WebBufferedReader=new WebsiteHTML(URLString).ObtainWebsiteHTMLBufferedReader();
 		
 		try {
 			String[] PictureURLs=ObtainStringBuilderForPictureURLs().toString().split("\n");
