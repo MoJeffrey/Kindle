@@ -1,7 +1,5 @@
 package com.qq1205792161.DownloadResources;
 
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.util.ArrayList;
 
 import com.qq1025792161.DownloadResources.WebsiteHTML;
